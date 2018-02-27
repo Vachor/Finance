@@ -14,7 +14,7 @@ MaxReturnWeights = linprog(-ERet, [], [], V1, 1, V0);
 MaxReturn = MaxReturnWeights' * Eret;
 
 %找到使得风险最小的权重分配
-MinVarWeights = quadprog(ECov,V0,[],[],[V1;Eret'],[1;0],V0,[],[],options);
+MinVarWeights = quadprog(ECov,V0,[],[],V1,1,V0,[],[],options);
 MinVarReturn = MinVarWeights' * ERet;
 MinVarStd = sqrt(MinVarWeights' * ECov * MinVarWeights);
 
